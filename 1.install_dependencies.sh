@@ -28,6 +28,7 @@ fi
 
 if [ ! -f "setup_virtualenv.sh" ]; then
     wget https://raw.githubusercontent.com/ska-sa/mkat_fpga_tests/devel/scripts/setup_virtualenv.sh
+else
     recho "Failed to download setup_virtualenv.sh"
     recho "Contact: ${AUTHOR}"
     exit 1;
