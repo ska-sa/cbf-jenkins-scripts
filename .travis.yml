@@ -6,10 +6,12 @@ sudo: required
 notifications:
   email: change
 
+env:
+  - RUN_INSTRUMENT=bc8n856M4k
+
 install:
   - sudo apt-get install -y shellcheck
 
 script:
   - source .bash_configs
-  - bash 1.install_dependencies.sh
-  - bash 2.verify_dependencies.sh
+  - bash 1.install_dependencies.sh && bash 2.verify_dependencies.sh

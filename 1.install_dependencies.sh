@@ -13,6 +13,12 @@ if [ -z "${RUN_INSTRUMENT}" ]; then
     exit 1;
 fi
 
+if [ -z "${WORKSPACE}" ]; then
+    recho "Not currently running on Jenkins"
+    recho "Using $(pwd) for testing purposes!"
+    WORKSPACE=$(pwd)
+fi
+
 if [ -d "/etc/corr/templates" ]; then
     cd /etc/corr/templates || true;
     gecho "Resetting any changes made on templaces in /etc/corr"
