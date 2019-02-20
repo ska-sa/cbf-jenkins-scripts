@@ -16,7 +16,8 @@ env:
   - RUN_INSTRUMENT=bc8n856M4k
 
 install:
-  - sudo apt-get install -y shellcheck
+  # Install corr2, casperfpga and nosekatreport dependencies manually
+  - pip install -r https://raw.githubusercontent.com/ska-sa/mkat_fpga_tests/devel/pip-dev-requirements.txt
 
 script:
   - source .bash_configs
