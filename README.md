@@ -1,6 +1,6 @@
 # Jenkins Scripts
 
-[![Build Status](https://travis-ci.org/ska-sa/cbf-jenkins-scripts.svg?branch=master)](https://travis-ci.org/mmphego/cbf-jenkins-scripts)
+[![Build Status](https://travis-ci.org/ska-sa/cbf-jenkins-scripts.svg?branch=master)](https://travis-ci.org/ska-sa/cbf-jenkins-scripts)
 [![GitHub](https://img.shields.io/github/license/ska-sa/cbf-jenkins-scripts.svg)](LICENCE)
 
 This directory contains all the scripts needed, when running a Jenkins build.
