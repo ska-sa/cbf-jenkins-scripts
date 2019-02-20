@@ -19,7 +19,7 @@ cmd_exists() {
 
 export -f gecho
 export -f recho
-export -f exists
+export -f cmd_exists
 
 export INSTRUMENT="${RUN_INSTRUMENT#*M}"
 export ARRAY_NAME="array_0"
