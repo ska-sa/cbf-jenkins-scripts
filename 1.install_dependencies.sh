@@ -13,6 +13,12 @@ if [ -z "${RUN_INSTRUMENT}" ]; then
     exit 1;
 fi
 
+if [ -z "${WORKSPACE}" ]; then
+    recho "Not currently running on Jenkins"
+    recho "Using $(pwd) as WORKSPACE for testing purposes!"
+    WORKSPACE=$(pwd)
+fi
+
 if [ -d "/etc/corr/templates" ]; then
     cd /etc/corr/templates || true;
     gecho "Resetting any changes made on templaces in /etc/corr"
@@ -22,6 +28,7 @@ fi
 
 if [ ! -f "setup_virtualenv.sh" ]; then
     wget https://raw.githubusercontent.com/ska-sa/mkat_fpga_tests/devel/scripts/setup_virtualenv.sh
+else
     recho "Failed to download setup_virtualenv.sh"
     recho "Contact: ${AUTHOR}"
     exit 1;
@@ -29,7 +36,11 @@ fi
 
 if [ -f "setup_virtualenv.sh" ]; then
     gecho "Installing virtualenv and all dependencies"
-    bash setup_virtualenv.sh
+    if [[ -z "${TRAVIS}" ]]; then
+        bash setup_virtualenv.sh
+    else
+        bash -x setup_virtualenv.sh
+    fi
     export PATH=$PATH:$WORKSPACE/scripts:$WORKSPACE/.venv/bin;
     gecho "Working in a virtualenv."
     # shellcheck disable=SC1091
