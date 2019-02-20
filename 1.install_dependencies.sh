@@ -15,7 +15,7 @@ fi
 
 if [ -z "${WORKSPACE}" ]; then
     recho "Not currently running on Jenkins"
-    recho "Using $(pwd) for testing purposes!"
+    recho "Using $(pwd) as WORKSPACE for testing purposes!"
     WORKSPACE=$(pwd)
 fi
 

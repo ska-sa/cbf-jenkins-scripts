@@ -14,4 +14,4 @@ install:
 
 script:
   - source .bash_configs
-  - bash 1.install_dependencies.sh && bash 2.verify_dependencies.sh
+  - bash -x 1.install_dependencies.sh && bash -x 2.verify_dependencies.sh
