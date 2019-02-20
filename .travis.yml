@@ -1,0 +1,15 @@
+---
+language: python
+
+sudo: required
+
+notifications:
+  email: change
+
+install:
+  - sudo apt-get install -y shellcheck
+
+script:
+  - source .bash_configs
+  - bash 1.install_dependencies.sh
+  - bash 2.verify_dependencies.sh

@@ -1,23 +1,23 @@
 # Jenkins Scripts
 
-<!-- [![Build Status](https://travis-ci.org/ska-sa/cbf-jenkins-scripts.svg?branch=master)](https://travis-ci.org/mmphego/cbf-jenkins-scripts) -->
+[![Build Status](https://travis-ci.org/ska-sa/cbf-jenkins-scripts.svg?branch=master)](https://travis-ci.org/mmphego/cbf-jenkins-scripts)
 [![GitHub](https://img.shields.io/github/license/ska-sa/cbf-jenkins-scripts.svg)](LICENCE)
 
 This directory contains all the scripts needed, when running a Jenkins build.
 This could be simplified by just running a `JENKINSFILE`, that would be tedious hence the simplification of just using the shell scripts, Namely:
 
 * `1.install_dependencies.sh`
-    - Script is self-explanatory, it resets any changes made to corr template, and creates a virtual environment with all dependencies.
+    * Script is self-explanatory, it resets any changes made to corr template, and creates a virtual environment with all dependencies.
 * `2.verify_dependencies.sh`
-    - This script verifies if the necessary packages where installed in your virtualenv.
+    * This script verifies if the necessary packages where installed in your virtualenv.
 * `3.initialise_instrument.sh`
-    - This script modifies the test config file for site assuming you are running Jenkins on site system, and then tries to initialise a predefined instrument
+    * This script modifies the test config file for site assuming you are running Jenkins on site system, and then tries to initialise a predefined instrument
 * `4.corr2rx_test.sh`
-    - Assuming an instrument is running, this script will verify if X-Engines are spewing out data.
+    * Assuming an instrument is running, this script will verify if X-Engines are spewing out data.
 * `5.run_tests.sh`
-    - This script, depending on the boolean var `RUN_TESTS`, it will execute tests for specified instrument.
+    * This script, depending on the boolean var `RUN_TESTS`, it will execute tests for specified instrument.
 * `.bash_configs`
-    - Contains functions and vars required by scripts.
+    * Contains functions and vars required by scripts.
 
 ## Note
 
