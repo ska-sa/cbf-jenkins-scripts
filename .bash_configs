@@ -1,0 +1,20 @@
+# Config file containing all the important vars
+
+export AUTHOR="Mpho Mphego <mmphego@ska.ac.za>"
+
+export RED=$(tput setaf 1)
+export GREEN=$(tput setaf 2)
+export NORMAL=$(tput sgr0)
+
+gecho() {
+    echo "${GREEN}$1${NORMAL}"
+}
+recho() {
+    echo "${RED}$1${NORMAL}"
+}
+
+export -f gecho
+export -f recho
+
+export INSTRUMENT="${RUN_INSTRUMENT#*M}"
+export ARRAY_NAME="array_0"
