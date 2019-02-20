@@ -5,18 +5,19 @@
 # To run: bash ./1.install_dependencies.sh
 
 set -e pipeline #Abort on errors
+# shellcheck disable=SC1091
 source .bash_configs
 
-if [ ! -n "${RUN_INSTRUMENT}" ]; then
+if [ -z "${RUN_INSTRUMENT}" ]; then
     recho "INSTRUMENT WAS NOT SPECIFIED."
     exit 1;
 fi
 
 if [ -d "/etc/corr/templates" ]; then
-    cd /etc/corr/templates
+    cd /etc/corr/templates || true;
     gecho "Resetting any changes made on templaces in /etc/corr"
     git diff --exit-code "${RUN_INSTRUMENT}" || git checkout -- "${RUN_INSTRUMENT}";
-    cd -
+    cd - || true;
 fi
 
 if [ ! -f "setup_virtualenv.sh" ]; then
@@ -31,6 +32,7 @@ if [ -f "setup_virtualenv.sh" ]; then
     bash setup_virtualenv.sh
     export PATH=$PATH:$WORKSPACE/scripts:$WORKSPACE/.venv/bin;
     gecho "Working in a virtualenv."
+    # shellcheck disable=SC1091
     . .venv/bin/activate
 else
     recho "Failed to create virtualenv and install dependencies"
