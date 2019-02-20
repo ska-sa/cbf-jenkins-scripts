@@ -36,7 +36,11 @@ fi
 
 if [ -f "setup_virtualenv.sh" ]; then
     gecho "Installing virtualenv and all dependencies"
-    bash setup_virtualenv.sh
+    if [[ -z "${TRAVIS}" ]]; then
+        bash setup_virtualenv.sh
+    else
+        bash -x setup_virtualenv.sh
+    fi
     export PATH=$PATH:$WORKSPACE/scripts:$WORKSPACE/.venv/bin;
     gecho "Working in a virtualenv."
     # shellcheck disable=SC1091
