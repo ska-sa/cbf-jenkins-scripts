@@ -20,9 +20,13 @@ if [ -f ".venv/bin/activate" ]; then
     fi
 
     if [ -f "scripts/instrument_activate" ]; then
-        bash scripts/instrument_activate "${RUN_INSTRUMENT}" localhost "${ARRAY_NAME}" y
+        if ! bash scripts/instrument_activate "${RUN_INSTRUMENT}" localhost "${ARRAY_NAME}" y; then
+            recho "Failed to initialise ${RUN_INSTRUMENT}, See logs"
+            exit 1
+        fi
     else
-        recho "Failed to initialise ${RUN_INSTRUMENT}, See logs"
+        recho "Missing instrument_activate script"
+        recho "If this issue, ensure you are in the correct dir"
         exit 1
     fi
 else
