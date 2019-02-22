@@ -27,11 +27,11 @@ if [ -d "/etc/corr/templates" ]; then
 fi
 
 if [ ! -f "setup_virtualenv.sh" ]; then
-    wget https://raw.githubusercontent.com/ska-sa/mkat_fpga_tests/devel/scripts/setup_virtualenv.sh
-else
-    recho "Failed to download setup_virtualenv.sh"
-    recho "Contact: ${AUTHOR}"
-    exit 1;
+    if ! wget https://raw.githubusercontent.com/ska-sa/mkat_fpga_tests/devel/scripts/setup_virtualenv.sh; then
+        recho "Failed to download setup_virtualenv.sh"
+        recho "Contact: ${AUTHOR}"
+        exit 1;
+    fi
 fi
 
 if [ -f "setup_virtualenv.sh" ]; then
