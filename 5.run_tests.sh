@@ -21,6 +21,6 @@ else
     recho "If this issue persists contact: ${AUTHOR}"
     exit 1
 fi
-if cmd_exist pylint; then
+if cmd_exists pylint; then
     pylint --rcfile .pylintrc mkat_fpga_tests > katreport/pylint-report.txt
 fi
