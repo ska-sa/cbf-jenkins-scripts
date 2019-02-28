@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/ska-sa/cbf-jenkins-scripts.svg?branch=master)](https://travis-ci.org/ska-sa/cbf-jenkins-scripts)
 [![GitHub](https://img.shields.io/github/license/ska-sa/cbf-jenkins-scripts.svg)](LICENCE)
 
-This directory contains all the scripts needed, when running a Jenkins build.
+This repo contains all the scripts needed, when running a Jenkins build.
 This could be simplified by just running a `JENKINSFILE`, that would be tedious hence the simplification of just using the shell scripts, Namely:
 
 * `1.install_dependencies.sh`
